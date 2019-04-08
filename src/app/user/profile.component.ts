@@ -22,7 +22,6 @@ export class ProfileComponent implements OnInit {
   private lastName: FormControl;
 
   constructor(private authService: AuthService, private router: Router) {
-
   }
 
   ngOnInit() {

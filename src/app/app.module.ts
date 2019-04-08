@@ -18,16 +18,21 @@ import {
 
 import { EventsAppComponent } from './events-app.component';
 import { NavBarComponent } from './nav/navbar.component';
+
 import {
   CollapsibleWellComponent,
-  ToastrService,
+  TOASTR_TOKEN,
+  Toastr,
   JQ_TOKEN
 } from './common/index';
+
 import { appRoutes } from './routes';
 import { Error404Component } from './errors/404.component';
 import { AuthService } from './user/auth.service';
 
 let jQuery = window['$'];
+
+let toastr: Toastr = window['toastr'];
 
 @NgModule({
   imports: [
@@ -51,7 +56,10 @@ let jQuery = window['$'];
   ],
   providers: [
     EventService,
-    ToastrService,
+    {
+      provide: TOASTR_TOKEN,
+      useValue: toastr
+    },
     EventListResolver,
     EventRouteActivator,
     AuthService,
