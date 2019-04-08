@@ -18,11 +18,16 @@ import {
 
 import { EventsAppComponent } from './events-app.component';
 import { NavBarComponent } from './nav/navbar.component';
-import { ToastrService } from './common/toastr.service';
+import {
+  CollapsibleWellComponent,
+  ToastrService,
+  JQ_TOKEN
+} from './common/index';
 import { appRoutes } from './routes';
 import { Error404Component } from './errors/404.component';
 import { AuthService } from './user/auth.service';
-import { CollapsibleWellComponent } from './common/collapsible-well.component';
+
+let jQuery = window['$'];
 
 @NgModule({
   imports: [
@@ -53,6 +58,10 @@ import { CollapsibleWellComponent } from './common/collapsible-well.component';
     {
       provide: 'canDeactivateCreateEvent',
       useValue: checkDirtyState
+    },
+    {
+      provide: JQ_TOKEN,
+      useValue: jQuery
     }
   ],
   bootstrap: [EventsAppComponent]
