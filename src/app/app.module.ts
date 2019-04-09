@@ -23,7 +23,9 @@ import {
   CollapsibleWellComponent,
   TOASTR_TOKEN,
   Toastr,
-  JQ_TOKEN
+  JQ_TOKEN,
+  SimpleModalComponent,
+  ModalTriggerDirective
 } from './common/index';
 
 import { appRoutes } from './routes';
@@ -51,7 +53,9 @@ let toastr: Toastr = window['toastr'];
     CreateSessionComponent,
     CollapsibleWellComponent,
     SessionListComponent,
+    SimpleModalComponent,
     Error404Component,
+    ModalTriggerDirective,
     DurationPipe
   ],
   providers: [
