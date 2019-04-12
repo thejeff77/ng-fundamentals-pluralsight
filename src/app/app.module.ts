@@ -13,7 +13,9 @@ import {
   SessionListComponent,
   EventRouteActivator,
   EventListResolver,
-  DurationPipe
+  DurationPipe,
+  UpvoteComponent,
+  VoterService
 } from './events/index';
 
 import { EventsAppComponent } from './events-app.component';
@@ -55,11 +57,13 @@ let toastr: Toastr = window['toastr'];
     SessionListComponent,
     SimpleModalComponent,
     Error404Component,
+    UpvoteComponent,
     ModalTriggerDirective,
     DurationPipe
   ],
   providers: [
     EventService,
+    VoterService,
     {
       provide: TOASTR_TOKEN,
       useValue: toastr
