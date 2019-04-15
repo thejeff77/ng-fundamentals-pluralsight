@@ -14,24 +14,23 @@ export class SessionListComponent implements OnChanges {
   @Input() sortBy: string;
   visibleSessions: ISession[] = [];
 
-  constructor(private auth: AuthService, private voterService: VoterService ) {}
+  constructor(public auth: AuthService, private voterService: VoterService ) {}
 
   ngOnChanges() {
     if (this.sessions) {
       this.visibleSessions = this.filterSessions(this.filterBy);
-      this.sortBy === 'name' ? this.visibleSessions.sort(sortByNameAsc) : this.visibleSessions.sort(sortByVotesDesc)
+      this.sortBy === 'name' ? this.visibleSessions.sort(sortByNameAsc) : this.visibleSessions.sort(sortByVotesDesc);
     }
   }
 
   toggleVote(session: ISession) {
-    if(this.userHasVoted(session)) {
+    if (this.userHasVoted(session)) {
       this.voterService.deleteVoter(session, this.auth.currentUser.userName);
-    }
-    else {
+    } else {
       this.voterService.addVoter(session, this.auth.currentUser.userName);
     }
 
-    if(this.sortBy === 'votes') {
+    if (this.sortBy === 'votes') {
       this.visibleSessions.sort(sortByVotesDesc);
     }
   }
@@ -40,7 +39,7 @@ export class SessionListComponent implements OnChanges {
     return this.voterService.userHasVoted(session, this.auth.currentUser.userName);
   }
 
-  filterSessions(filter: string){
+  filterSessions(filter: string) {
     if (filter === 'all') {
       return this.sessions.slice(0); // this duplicates the array.
     } else {

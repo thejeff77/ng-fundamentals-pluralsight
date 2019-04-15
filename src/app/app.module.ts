@@ -15,7 +15,8 @@ import {
   EventListResolver,
   DurationPipe,
   UpvoteComponent,
-  VoterService
+  VoterService,
+  LocationValidator
 } from './events/index';
 
 import { EventsAppComponent } from './events-app.component';
@@ -34,9 +35,9 @@ import { appRoutes } from './routes';
 import { Error404Component } from './errors/404.component';
 import { AuthService } from './user/auth.service';
 
-let jQuery = window['$'];
+const jQuery = window['$'];
 
-let toastr: Toastr = window['toastr'];
+const toastr: Toastr = window['toastr'];
 
 @NgModule({
   imports: [
@@ -59,7 +60,8 @@ let toastr: Toastr = window['toastr'];
     Error404Component,
     UpvoteComponent,
     ModalTriggerDirective,
-    DurationPipe
+    DurationPipe,
+    LocationValidator,
   ],
   providers: [
     EventService,

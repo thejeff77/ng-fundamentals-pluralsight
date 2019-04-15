@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core'
-import { Router } from '@angular/router'
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { routerNgProbeToken } from '@angular/router/src/router_module';
-import { EventService } from './shared';
+import { EventService, IEvent } from './shared';
 
 @Component({
     templateUrl: 'create-event.component.html',
@@ -15,26 +15,12 @@ import { EventService } from './shared';
     `]
 })
 export class CreateEventComponent implements OnInit {
-  // event: any;
+  event: IEvent;
   isDirty = true;
   constructor(private router: Router, private eventService: EventService) {
   }
 
-  ngOnInit() {
-    // this.event = {
-    //   name: 'Huge Event for Fun',
-    //   date: '1/1/2307',
-    //   time: '10am',
-    //   price: 1000000.50,
-    //   location: {
-    //     address: '721 End-of-days Ave.',
-    //     city: 'Underworld',
-    //     country: 'Earth'
-    //   },
-    //   onlineUrl: 'www.google.com',
-    //   imageUrl: 'https://searchengineland.com/figz/wp-content/seloads/2016/05/urlguide.jpg'
-    // }
-  }
+  ngOnInit() {}
 
   saveEvent(formValues) {
     this.eventService.saveEvent(formValues);
