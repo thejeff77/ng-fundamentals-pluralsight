@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import {
   EventsListComponent,
@@ -11,12 +12,12 @@ import {
   CreateEventComponent,
   CreateSessionComponent,
   SessionListComponent,
-  EventRouteActivator,
   EventListResolver,
   DurationPipe,
   UpvoteComponent,
   VoterService,
-  LocationValidator
+  LocationValidator,
+  EventResolver
 } from './events/index';
 
 import { EventsAppComponent } from './events-app.component';
@@ -44,7 +45,8 @@ const toastr: Toastr = window['toastr'];
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    HttpClientModule
   ],
   declarations: [
     EventsAppComponent,
@@ -71,7 +73,7 @@ const toastr: Toastr = window['toastr'];
       useValue: toastr
     },
     EventListResolver,
-    EventRouteActivator,
+    EventResolver,
     AuthService,
     {
       provide: 'canDeactivateCreateEvent',
