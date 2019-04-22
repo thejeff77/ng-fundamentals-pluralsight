@@ -6,4 +6,4 @@ describe('first tests', () => {
   it('should be false', () => {
     expect(false).toBe(false);
   });
-})
+});

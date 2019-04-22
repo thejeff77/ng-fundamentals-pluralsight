@@ -45,7 +45,7 @@ export class CreateSessionComponent implements OnInit {
 
   saveSession(formValues) {
     console.log('Form posted the following values', formValues);
-    let session: ISession = {
+    const session: ISession = {
       id: undefined,
       name: formValues.name,
       presenter: formValues.presenter,
